@@ -9,6 +9,7 @@ namespace Demo.Test.Integration
     {
         private const string FileAPath = "stub/fileA.json";
         private const string FileBPath = "stub/fileB.json";
+        private const string FileCPath = "stub/fileC.json";
 
         [Fact]
         public void WhenFilesAreEqual_ShowsNoChanges()
@@ -16,6 +17,13 @@ namespace Demo.Test.Integration
             var objectA = JObject.Parse(File.ReadAllText(FileAPath));
             var objectB = JObject.Parse(File.ReadAllText(FileBPath));
             objectB.Should().Equal(objectA);
+        }
+
+        public void WhenFilesAreDifferent_ShowsChanges()
+        {
+            var objectA = JObject.Parse(File.ReadAllText(FileAPath));
+            var objectC = JObject.Parse(File.ReadAllText(FileCPath));
+            objectC.Should().NotBeSameAs(objectA);
         }
     }
 }
