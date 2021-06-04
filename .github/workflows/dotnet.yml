@@ -26,4 +26,4 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore test-diff/Demo.Test.sln
     - name: Test
-      run: dotnet test --no-restore --no-build --verbosity normal test-diff/Demo.Test.sln
+      run: dotnet test --configuration Release --no-restore --no-build --verbosity normal test-diff/Demo.Test.sln
