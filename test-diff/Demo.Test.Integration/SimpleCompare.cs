@@ -33,9 +33,17 @@ namespace Demo.Test.Integration
         [Fact]
         public void WhenXmlFilesAreEqual_ShowsNoChanges()
         {
-            var contentA = File.ReadAllText(JsonAPath);
-            var contentB = File.ReadAllText(JsonBPath);
+            var contentA = File.ReadAllText(XmlAPath);
+            var contentB = File.ReadAllText(XmlBPath);
             contentB.Should().Be(contentA);
+        }
+
+        [Fact]
+        public void WhenXmlFilesAreDifferent_ShowsChanges()
+        {
+            var contentA = File.ReadAllText(JsonAPath);
+            var contentC = File.ReadAllText(XmlCPath);
+            contentC.Should().NotBe(contentA);
         }
     }
 }

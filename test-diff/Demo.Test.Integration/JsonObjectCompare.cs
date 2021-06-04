@@ -19,6 +19,7 @@ namespace Demo.Test.Integration
             objectB.Should().Equal(objectA);
         }
 
+        [Fact]
         public void WhenFilesAreDifferent_ShowsChanges()
         {
             var objectA = JObject.Parse(File.ReadAllText(FileAPath));
